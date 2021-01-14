@@ -1,0 +1,34 @@
+  <%- include("header") -%>
+  <!-- layout -->
+
+  <div class="box" id="heading">
+    <h1> <%= listTitle %> </h1>
+
+  </div>
+
+  <div class="box">
+
+
+      <%    for (var i = 0; i < newListItems.length; i++){ %>
+        <div class="item">
+          <input type="checkbox" >
+          <p><%= newListItems[i] %></p>
+
+        </div>
+      <%    } %>
+
+      <!-- <% %> , snippet tags for js control flow code, line by line, each js code line need -->
+      <!-- if wanna use js code in ejs file, control flow, need to wrap every line with this -->
+      <!-- <%= %> tag for marker variables, to pass variables to ejs file from server -->
+
+      <form class="item" action="/" method="post">
+        <!-- send post req to / -->
+        <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+        <!-- autocomplete, is the suggestion -->
+        <button type="submit" name="list" value="<%= listTitle %>">+</button>
+        <!-- add "" for value, so can handle "work list" as value, and not just "work" -->
+      </form>
+
+  </div>
+<%- include("footer") -%>
+<!-- layout -->
